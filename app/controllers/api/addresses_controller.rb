@@ -23,6 +23,7 @@ class Api::AddressesController < ApplicationController
       render json: address
     else
       render json: { errors: address.errors.full_messages.join(',') }, status: :bad_request
+    end
   end
 
   def destroy
@@ -35,6 +36,6 @@ class Api::AddressesController < ApplicationController
     end
 
     def address_params
-      params.require(:address).permit(:name)
+      params.require(:address).permit(:city, :street, :zip)
     end
 end

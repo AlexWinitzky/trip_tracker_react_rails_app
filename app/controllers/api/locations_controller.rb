@@ -1,5 +1,5 @@
 class Api::LocationsController < ApplicationController
-  before_action :set_location, :only [:show, :update, :destroy]
+  before_action :set_location, only: [:show, :update, :destroy]
   
   def index
     render json: Location.all
@@ -23,6 +23,7 @@ class Api::LocationsController < ApplicationController
       render json: location
     else
       render json: { errors: location.errors.full_messages.join(',') }, status: :bad_request
+    end
   end
 
   def destroy

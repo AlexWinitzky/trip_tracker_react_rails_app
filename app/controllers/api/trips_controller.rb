@@ -23,6 +23,7 @@ class Api::TripsController < ApplicationController
       render json: trip
     else
       render json: { errors: trip.errors.full_messages.join(',') }, status: :bad_request
+    end
   end
 
   def destroy

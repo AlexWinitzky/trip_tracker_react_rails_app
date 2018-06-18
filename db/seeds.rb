@@ -8,14 +8,12 @@
       name: Faker::HitchhikersGuideToTheGalaxy.location
     )
 
-    1.times do
-      Address.create(
-        location_id: @location,
-        street: Faker::Address.street_address,
-        city: Faker::Address.city,
-        zip: Faker::Address.zip_code
-      )
-    end
+    @location.create_address(
+      location_id: @location,
+      street: Faker::Address.street_address,
+      city: Faker::GameOfThrones.city,
+      zip: Faker::Address.zip_code
+    )
   end
 end
 
